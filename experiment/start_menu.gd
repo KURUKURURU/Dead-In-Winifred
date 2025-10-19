@@ -13,4 +13,4 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("uid://dopho7u64ppd3")
+	get_tree().change_scene_to_file("uid://bjhd7u0qrknsx")

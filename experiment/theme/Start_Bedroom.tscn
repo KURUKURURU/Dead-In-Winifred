@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjhd7u0qrknsx"]
+
+[ext_resource type="Texture2D" uid="uid://jqubygcw8x8t" path="res://ph/40bb44d05c4a289cbea45f73a9013134.jpg" id="1_3cd0j"]
+[ext_resource type="Script" uid="uid://br81bpqpso6cd" path="res://theme/start_bedroom.gd" id="2_jka5c"]
+[ext_resource type="AudioStream" uid="uid://cgek4naswsfhr" path="res://sfx/759616__froey__phone-notification-on-vibrate.wav" id="3_2qsre"]
+[ext_resource type="Texture2D" uid="uid://dm7hye0ta24bl" path="res://ph/buttons_PNG176.png" id="4_2qsre"]
+[ext_resource type="AudioStream" uid="uid://cbb16gs6fsfmi" path="res://sfx/572702__trp__180711-morning-early-night-hawk-robins-summer-toronto.mp3" id="4_cnhfx"]
+
+[node name="Main_Image" type="TextureRect"]
+offset_top = -85.0
+offset_right = 580.0
+offset_bottom = 350.0
+scale = Vector2(1.9860594, 1.7082522)
+texture = ExtResource("1_3cd0j")
+script = ExtResource("2_jka5c")
+
+[node name="1" type="Node" parent="."]
+
+[node name="EyesClosed" type="ColorRect" parent="1"]
+visible = false
+offset_left = -10.999999
+offset_top = -11.999992
+offset_right = 29.0
+offset_bottom = 28.000008
+scale = Vector2(29.181875, 16.71018)
+color = Color(0, 0, 0, 1)
+
+[node name="Alarm" type="AudioStreamPlayer" parent="1"]
+stream = ExtResource("3_2qsre")
+
+[node name="2" type="Node" parent="."]
+
+[node name="TextureButton" type="TextureButton" parent="2"]
+offset_left = 1044.0001
+offset_top = 644.0
+offset_right = 1684.0001
+offset_bottom = 964.0
+rotation = -1.5803051
+scale = Vector2(1, 0.321167)
+texture_hover = ExtResource("4_2qsre")
+
+[node name="Wind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_cnhfx")
+volume_db = -26.605
+
+[connection signal="finished" from="1/Alarm" to="." method="_on_alarm_finished"]
+[connection signal="pressed" from="2/TextureButton" to="." method="_on_texture_button_pressed"]

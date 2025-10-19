@@ -1,24 +1,26 @@
-[gd_scene load_steps=10 format=3 uid="uid://dopho7u64ppd3"]
+[gd_scene load_steps=11 format=3 uid="uid://dopho7u64ppd3"]
 
 [ext_resource type="Texture2D" uid="uid://6u3rygv3le86" path="res://ph/b1a6f73f61258765bd35b2217550e035.jpg" id="1_2c1mq"]
 [ext_resource type="Script" uid="uid://dmxedriut0iu3" path="res://scenesssssssss/family_room.gd" id="1_obpsx"]
 [ext_resource type="AudioStream" uid="uid://xn343f2co61x" path="res://musicssss/music.wav" id="2_3sxp4"]
-[ext_resource type="Texture2D" uid="uid://cuovkkwvywiux" path="res://icon.svg" id="3_h5tpb"]
-[ext_resource type="FontFile" uid="uid://chbdafdoxsrsp" path="res://font/gladifilthefte/Gladifilthefte.ttf" id="4_obpsx"]
+[ext_resource type="Texture2D" uid="uid://bkqv5mmp0ataj" path="res://images/icon.jpg" id="4_siclg"]
+[ext_resource type="Texture2D" uid="uid://psof6ld3hjj5" path="res://ph/man-sitting-png-clipart.jpg" id="5_obpsx"]
+[ext_resource type="Texture2D" uid="uid://dlaq3f3hiu07f" path="res://images/godotwaka.png" id="6_siclg"]
+[ext_resource type="Texture2D" uid="uid://dm7hye0ta24bl" path="res://ph/buttons_PNG176.png" id="7_x831d"]
 
 [sub_resource type="Animation" id="Animation_obpsx"]
 resource_name = "DOWN"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
+tracks/0/path = NodePath("../TextureButton:position")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(197, 59), Vector2(197, 680)]
+"values": [Vector2(295, 111.99997), Vector2(295, 660)]
 }
 
 [sub_resource type="Animation" id="Animation_siclg"]
@@ -26,14 +28,14 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("../TextureButton:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(197, 59)]
+"values": [Vector2(295, 111.99997)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x831d"]
@@ -41,9 +43,6 @@ _data = {
 &"DOWN": SubResource("Animation_obpsx"),
 &"RESET": SubResource("Animation_siclg")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5tpb"]
-size = Vector2(211.11743, 166.41647)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_obpsx")
@@ -55,63 +54,55 @@ offset_bottom = 600.0
 scale = Vector2(1.7219, 1.3408191)
 texture = ExtResource("1_2c1mq")
 
+[node name="person1" type="TextureButton" parent="."]
+offset_left = 528.0
+offset_top = 266.00003
+offset_right = 1129.0
+offset_bottom = 1272.0
+scale = Vector2(0.35369742, 0.35369742)
+texture_normal = ExtResource("5_obpsx")
+texture_pressed = ExtResource("5_obpsx")
+texture_hover = ExtResource("4_siclg")
+
 [node name="ThemeLoop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_3sxp4")
 autoplay = true
 
-[node name="StartNote" type="Node2D" parent="."]
-position = Vector2(197, 59)
-scale = Vector2(3.535248, 3.049551)
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 295.0
+offset_top = 111.99997
+offset_right = 2185.0
+offset_bottom = 1529.0
+scale = Vector2(0.3126182, 0.3126182)
+texture_normal = ExtResource("6_siclg")
+texture_pressed = ExtResource("6_siclg")
+texture_hover = ExtResource("6_siclg")
+texture_disabled = ExtResource("6_siclg")
+texture_focused = ExtResource("6_siclg")
 
-[node name="ColorRect" type="ColorRect" parent="StartNote"]
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(5.267206, 4.158234)
-color = Color(0.7350957, 0.67833424, 0.4892584, 1)
-
-[node name="TextureRect" type="TextureRect" parent="StartNote"]
-visible = false
-offset_left = 37.0
-offset_top = 17.0
-offset_right = 165.0
-offset_bottom = 145.0
-texture = ExtResource("3_h5tpb")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="StartNote"]
-offset_left = 16.406206
-offset_top = 28.528793
-offset_right = 1642.751
-offset_bottom = 1448.6776
-scale = Vector2(0.114254534, 0.11586005)
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("4_obpsx")
-theme_override_font_sizes/normal_font_size = 116
-bbcode_enabled = true
-text = "you have come here to solve a peculiar mystery. Your wonderful town of Winifred has just experienced it's first murder in decades, and you must use your abilities to point out the culprit."
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="StartNote"]
-offset_left = 130.40103
-offset_top = 112.147644
-offset_right = 835.9895
-offset_bottom = 355.5522
-rotation = 0.20155908
-scale = Vector2(0.114254534, 0.11586005)
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("4_obpsx")
-theme_override_font_sizes/normal_font_size = 116
-bbcode_enabled = true
-text = "click to crumple"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="StartNote"]
+[node name="ani" type="AnimationPlayer" parent="TextureButton"]
 libraries = {
 &"": SubResource("AnimationLibrary_x831d")
 }
 
-[node name="Area2D" type="Area2D" parent="StartNote"]
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 44.0
+offset_top = 540.0
+offset_right = 346.0
+offset_bottom = 625.0
+theme_override_font_sizes/normal_font_size = 56
+text = "hi"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StartNote/Area2D"]
-position = Vector2(104.89328, 83.37367)
-shape = SubResource("RectangleShape2D_h5tpb")
+[node name="TextureButton2" type="TextureButton" parent="."]
+offset_left = 19.0
+offset_top = 640.0
+offset_right = 659.0
+offset_bottom = 960.0
+rotation = -1.5803051
+scale = Vector2(1, 0.321167)
+texture_hover = ExtResource("7_x831d")
 
-[connection signal="mouse_entered" from="StartNote/Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="StartNote/Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="pressed" from="person1" to="." method="_on_person_1_pressed"]
+[connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="pressed" from="TextureButton2" to="." method="_on_texture_button_2_pressed"]
