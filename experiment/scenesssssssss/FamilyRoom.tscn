@@ -1,0 +1,117 @@
+[gd_scene load_steps=10 format=3 uid="uid://dopho7u64ppd3"]
+
+[ext_resource type="Texture2D" uid="uid://6u3rygv3le86" path="res://ph/b1a6f73f61258765bd35b2217550e035.jpg" id="1_2c1mq"]
+[ext_resource type="Script" uid="uid://dmxedriut0iu3" path="res://scenesssssssss/family_room.gd" id="1_obpsx"]
+[ext_resource type="AudioStream" uid="uid://xn343f2co61x" path="res://musicssss/music.wav" id="2_3sxp4"]
+[ext_resource type="Texture2D" uid="uid://cuovkkwvywiux" path="res://icon.svg" id="3_h5tpb"]
+[ext_resource type="FontFile" uid="uid://chbdafdoxsrsp" path="res://font/gladifilthefte/Gladifilthefte.ttf" id="4_obpsx"]
+
+[sub_resource type="Animation" id="Animation_obpsx"]
+resource_name = "DOWN"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(197, 59), Vector2(197, 680)]
+}
+
+[sub_resource type="Animation" id="Animation_siclg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(197, 59)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x831d"]
+_data = {
+&"DOWN": SubResource("Animation_obpsx"),
+&"RESET": SubResource("Animation_siclg")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5tpb"]
+size = Vector2(211.11743, 166.41647)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_obpsx")
+
+[node name="Main_Image" type="TextureRect" parent="."]
+offset_top = -76.0
+offset_right = 676.0
+offset_bottom = 600.0
+scale = Vector2(1.7219, 1.3408191)
+texture = ExtResource("1_2c1mq")
+
+[node name="ThemeLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_3sxp4")
+autoplay = true
+
+[node name="StartNote" type="Node2D" parent="."]
+position = Vector2(197, 59)
+scale = Vector2(3.535248, 3.049551)
+
+[node name="ColorRect" type="ColorRect" parent="StartNote"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(5.267206, 4.158234)
+color = Color(0.7350957, 0.67833424, 0.4892584, 1)
+
+[node name="TextureRect" type="TextureRect" parent="StartNote"]
+visible = false
+offset_left = 37.0
+offset_top = 17.0
+offset_right = 165.0
+offset_bottom = 145.0
+texture = ExtResource("3_h5tpb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="StartNote"]
+offset_left = 16.406206
+offset_top = 28.528793
+offset_right = 1642.751
+offset_bottom = 1448.6776
+scale = Vector2(0.114254534, 0.11586005)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_obpsx")
+theme_override_font_sizes/normal_font_size = 116
+bbcode_enabled = true
+text = "you have come here to solve a peculiar mystery. Your wonderful town of Winifred has just experienced it's first murder in decades, and you must use your abilities to point out the culprit."
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="StartNote"]
+offset_left = 130.40103
+offset_top = 112.147644
+offset_right = 835.9895
+offset_bottom = 355.5522
+rotation = 0.20155908
+scale = Vector2(0.114254534, 0.11586005)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_obpsx")
+theme_override_font_sizes/normal_font_size = 116
+bbcode_enabled = true
+text = "click to crumple"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StartNote"]
+libraries = {
+&"": SubResource("AnimationLibrary_x831d")
+}
+
+[node name="Area2D" type="Area2D" parent="StartNote"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartNote/Area2D"]
+position = Vector2(104.89328, 83.37367)
+shape = SubResource("RectangleShape2D_h5tpb")
+
+[connection signal="mouse_entered" from="StartNote/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StartNote/Area2D" to="." method="_on_area_2d_mouse_exited"]
