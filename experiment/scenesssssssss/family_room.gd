@@ -5,21 +5,22 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#$StartNote.show() # Replace with function body.
+	if Global.key2:
+		$TextureButton.hide()
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	_on_texture_button_mouse_entered()
+	pass
 
 
 
-func _on_texture_button_mouse_entered() -> void:
-	if Input.is_action_just_pressed("click"):
-			StartNoteAni.play("DOWN")
-			await StartNoteAni.animation_finished
-			await get_tree().process_frame
-			$TextureButton.hide()
+#func _on_texture_button_mouse_entered() -> void:
+	#if Input.is_action_just_pressed("click"):
+			#StartNoteAni.play("DOWN")
+			#await StartNoteAni.animation_finished
+			#await get_tree().process_frame
+			#$TextureButton.hide()
 
 
 func _on_person_1_pressed() -> void:
@@ -34,3 +35,11 @@ func wait(seconds: float) -> void:
 
 func _on_texture_button_2_pressed() -> void:
 	get_tree().change_scene_to_file("uid://bjhd7u0qrknsx")
+
+
+func _on_texture_button_pressed() -> void:
+	Global.key2 = true
+	StartNoteAni.play("DOWN")
+	await StartNoteAni.animation_finished
+	await get_tree().process_frame
+	$TextureButton.hide()

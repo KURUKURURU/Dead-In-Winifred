@@ -16,6 +16,11 @@ config/features=PackedStringArray("4.5", "Mobile")
 run/max_fps=60
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://global.gd"
+AudioMusic="*res://scenesssssssss/audio_music.tscn"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")

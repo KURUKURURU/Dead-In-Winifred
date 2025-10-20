@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://6pjcsxp8lx5s"]
+
+[ext_resource type="AudioStream" uid="uid://bjo36rpjj3bnp" path="res://sfx/829979__kanaizo__reflective-ambience-1.wav" id="1_onp7k"]
+
+[node name="AudioMusic" type="Node2D"]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_onp7k")
+volume_db = -16.324
+autoplay = true

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://chanjw20tcrdl"]
+
+[ext_resource type="Script" uid="uid://75xqjmh5y1ri" path="res://scenesssssssss/bathroom.gd" id="1_8oko3"]
+[ext_resource type="Texture2D" uid="uid://kp80pguejbbw" path="res://ph/486b9d1b2605b24cb5068f6d7d57ee15.jpg" id="2_vnqj6"]
+[ext_resource type="Texture2D" uid="uid://dm7hye0ta24bl" path="res://ph/buttons_PNG176.png" id="3_mjgoy"]
+[ext_resource type="AudioStream" uid="uid://cbb16gs6fsfmi" path="res://sfx/572702__trp__180711-morning-early-night-hawk-robins-summer-toronto.mp3" id="4_vnqj6"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_8oko3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1457.8408
+offset_bottom = 916.0
+scale = Vector2(0.79020965, 0.79020965)
+texture = ExtResource("2_vnqj6")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 268.0
+offset_top = 569.00006
+offset_right = 908.0
+offset_bottom = 889.00006
+scale = Vector2(1, 0.19999936)
+texture_hover = ExtResource("3_mjgoy")
+
+[node name="Wind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vnqj6")
+volume_db = -26.605
+autoplay = true
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

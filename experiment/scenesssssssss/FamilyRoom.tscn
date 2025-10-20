@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dopho7u64ppd3"]
+[gd_scene load_steps=12 format=3 uid="uid://dopho7u64ppd3"]
 
 [ext_resource type="Texture2D" uid="uid://6u3rygv3le86" path="res://ph/b1a6f73f61258765bd35b2217550e035.jpg" id="1_2c1mq"]
 [ext_resource type="Script" uid="uid://dmxedriut0iu3" path="res://scenesssssssss/family_room.gd" id="1_obpsx"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://psof6ld3hjj5" path="res://ph/man-sitting-png-clipart.jpg" id="5_obpsx"]
 [ext_resource type="Texture2D" uid="uid://dlaq3f3hiu07f" path="res://images/godotwaka.png" id="6_siclg"]
 [ext_resource type="Texture2D" uid="uid://dm7hye0ta24bl" path="res://ph/buttons_PNG176.png" id="7_x831d"]
+[ext_resource type="Script" uid="uid://c5st7f3mkqclo" path="res://scenesssssssss/texture_button_2.gd" id="8_pf4db"]
 
 [sub_resource type="Animation" id="Animation_obpsx"]
 resource_name = "DOWN"
@@ -101,8 +102,10 @@ offset_bottom = 960.0
 rotation = -1.5803051
 scale = Vector2(1, 0.321167)
 texture_hover = ExtResource("7_x831d")
+script = ExtResource("8_pf4db")
 
 [connection signal="pressed" from="person1" to="." method="_on_person_1_pressed"]
 [connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
 [connection signal="mouse_exited" from="TextureButton" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="TextureButton2" to="." method="_on_texture_button_2_pressed"]
