@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://6pjcsxp8lx5s"]
+[gd_scene load_steps=3 format=3 uid="uid://6pjcsxp8lx5s"]
 
 [ext_resource type="AudioStream" uid="uid://bjo36rpjj3bnp" path="res://sfx/829979__kanaizo__reflective-ambience-1.wav" id="1_onp7k"]
+[ext_resource type="AudioStream" uid="uid://dvlcx6e370xlj" path="res://sfx/vacuum.mp3" id="2_7a42h"]
 
 [node name="AudioMusic" type="Node2D"]
 
@@ -8,3 +9,7 @@
 stream = ExtResource("1_onp7k")
 volume_db = -16.324
 autoplay = true
+
+[node name="vacuum_audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_7a42h")
+volume_db = -16.324

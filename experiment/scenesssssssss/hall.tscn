@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://1pqvj87kweg1"]
+[gd_scene load_steps=7 format=3 uid="uid://1pqvj87kweg1"]
 
 [ext_resource type="Script" uid="uid://cg637egn7obw2" path="res://node_2d.gd" id="1_42m6i"]
 [ext_resource type="Texture2D" uid="uid://bydxpgl0rb1ui" path="res://ph/f601acb51b000328dc122b0d76300fa2.jpg" id="2_158t0"]
 [ext_resource type="Texture2D" uid="uid://dm7hye0ta24bl" path="res://ph/buttons_PNG176.png" id="3_158t0"]
+[ext_resource type="Texture2D" uid="uid://csqmfknj6335d" path="res://ph/412QYpr7RyL._UF894,1000_QL80_.jpg" id="4_6vlh0"]
+[ext_resource type="Script" uid="uid://cl5dnpp3saop0" path="res://scenesssssssss/vacuum_handle.gd" id="5_pqkwr"]
+[ext_resource type="Script" uid="uid://bsuqb6je37awl" path="res://scenesssssssss/dirt.gd" id="6_pqkwr"]
 
 [node name="Hall" type="Node2D"]
 script = ExtResource("1_42m6i")
@@ -28,6 +31,13 @@ offset_right = 547.0
 offset_bottom = 245.0
 scale = Vector2(4.3199744, 7.205745)
 
+[node name="rightcloset" type="TextureButton" parent="."]
+offset_left = 706.0
+offset_top = 157.99998
+offset_right = 746.0
+offset_bottom = 197.99998
+scale = Vector2(1.7707641, 11.285717)
+
 [node name="TextureButton" type="TextureButton" parent="."]
 offset_left = 268.0
 offset_top = 569.00006
@@ -39,8 +49,54 @@ texture_hover = ExtResource("3_158t0")
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 194.0
 offset_top = 565.0
-offset_right = 234.0
+offset_right = 563.0
 offset_bottom = 605.0
 
+[node name="vacuum_handle" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.15828253, 0.15828253)
+texture = ExtResource("4_6vlh0")
+script = ExtResource("5_pqkwr")
+
+[node name="dirt" type="ColorRect" parent="."]
+offset_left = 522.0
+offset_top = 541.00006
+offset_right = 562.0
+offset_bottom = 581.00006
+scale = Vector2(0.30545747, 0.30545747)
+script = ExtResource("6_pqkwr")
+
+[node name="dirt2" type="ColorRect" parent="."]
+offset_left = 562.0
+offset_top = 559.00006
+offset_right = 602.0
+offset_bottom = 599.00006
+scale = Vector2(0.30545747, 0.30545747)
+script = ExtResource("6_pqkwr")
+
+[node name="dirt3" type="ColorRect" parent="."]
+offset_left = 694.0
+offset_top = 578.0
+offset_right = 734.0
+offset_bottom = 618.0
+scale = Vector2(0.20458725, 0.20458725)
+script = ExtResource("6_pqkwr")
+
+[node name="JoRoom" type="TextureButton" parent="."]
+offset_left = 322.0
+offset_top = 101.99999
+offset_right = 362.0
+offset_bottom = 142.0
+scale = Vector2(2.2142107, 16.57343)
+
 [connection signal="pressed" from="up" to="." method="_on_up_pressed"]
+[connection signal="pressed" from="rightcloset" to="." method="_on_rightcloset_pressed"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="mouse_entered" from="dirt" to="." method="_on_dirt_mouse_entered"]
+[connection signal="mouse_entered" from="dirt" to="dirt" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="dirt2" to="." method="_on_dirt_mouse_entered"]
+[connection signal="mouse_entered" from="dirt2" to="dirt2" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="dirt3" to="." method="_on_dirt_mouse_entered"]
+[connection signal="mouse_entered" from="dirt3" to="dirt3" method="_on_mouse_entered"]
+[connection signal="pressed" from="JoRoom" to="." method="_on_jo_room_pressed"]

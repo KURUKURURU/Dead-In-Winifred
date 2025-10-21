@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://j5bu0oufh0y"]
+
+[ext_resource type="Script" uid="uid://brlhx2bypbs6i" path="res://closet.gd" id="1_3i4cu"]
+[ext_resource type="Texture2D" uid="uid://dbyajnoo5qsx1" path="res://ph/2efeb2d7dee988e4ac1a9f740565bff9.jpg" id="2_op0k1"]
+[ext_resource type="Texture2D" uid="uid://dm7hye0ta24bl" path="res://ph/buttons_PNG176.png" id="3_6kryy"]
+[ext_resource type="Texture2D" uid="uid://csqmfknj6335d" path="res://ph/412QYpr7RyL._UF894,1000_QL80_.jpg" id="4_gncxl"]
+[ext_resource type="Script" uid="uid://cl5dnpp3saop0" path="res://scenesssssssss/vacuum_handle.gd" id="5_427h8"]
+
+[node name="closet" type="Node2D"]
+script = ExtResource("1_3i4cu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.777462, 16.172998)
+color = Color(0.8392157, 0.8392157, 0.80784315, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 295.0
+offset_top = -115.99999
+offset_right = 1031.0
+offset_bottom = 1192.0
+scale = Vector2(0.8063197, 0.6025883)
+texture = ExtResource("2_op0k1")
+
+[node name="vacuum" type="TextureButton" parent="."]
+offset_left = 650.0
+offset_top = 258.0
+offset_right = 690.0
+offset_bottom = 298.0
+scale = Vector2(2.8938062, 9.052329)
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 269.00012
+offset_top = 525.99994
+offset_right = 909.0001
+offset_bottom = 845.99994
+rotation = 0.0021277666
+scale = Vector2(1, 0.321167)
+texture_hover = ExtResource("3_6kryy")
+
+[node name="vacuum_handle" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.15828253, 0.15828253)
+texture = ExtResource("4_gncxl")
+script = ExtResource("5_427h8")
+
+[connection signal="pressed" from="vacuum" to="." method="_on_vacuum_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
